@@ -29,6 +29,10 @@ a {
     color: var(--lead);
 }
 
+.li-ftn {
+    font-weight: 800;
+}
+
 .flex {
     display: flex;
     align-items: center;
@@ -94,12 +98,6 @@ img {
 
 .navbar {
     min-height: 14vh;
-    
-    /* position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 0px 0px 0px 0px; */
 }
 
 .logo {

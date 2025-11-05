@@ -15,7 +15,7 @@
         "id": 3,
         "name": "fried chicken",
         "Price": "$150",
-        "image": "images/fried-chicken.png"
+        "image": "images/fried-chicken.png"   
     },
     {
         "id": 4,
