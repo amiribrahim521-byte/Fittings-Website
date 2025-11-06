@@ -19,18 +19,23 @@ const cartTotal = document.querySelector('.cart-total');
 const cartValue = document.querySelector('.cart-value');
 const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.querySelector('.mobile-menu');
-const bars = document.querySelector('.fa-bars');
+const bars = document.querySelector('.hamburger i');
+
 // My Work 1
-const checkoutBtn = document.querySelector('.check-btn');
+const checkoutBtn = document.querySelector('.check-btn'); 
 
 
 cartIcon.addEventListener('click', () => cartTab.classList.add('cart-tab-active'));
 closeBtn.addEventListener('click', () => cartTab.classList.remove('cart-tab-active'));
 hamburger.addEventListener('click', () => mobileMenu.classList.toggle('mobile-menu-active'));
-hamburger.addEventListener('click', () => bars.classList.toggle('fa-xmark'));
+hamburger.addEventListener('click', () => {
+    bars.classList.toggle('fa-bars');
+    bars.classList.toggle('fa-xmark');
+});
 
 let productList = [];
 let cartProduct = [];
+
 // My Work 2
 if (checkoutBtn) {
     checkoutBtn.addEventListener('click', (e) => {

@@ -29,9 +29,17 @@ a {
     color: var(--lead);
 }
 
+/* My Work 1 */
 .li-ftn {
     font-weight: 800;
 }
+
+/* working */
+/* 
+.bac-col{
+    background: rgb(83, 184, 184);
+    padding: 10px 10px 0px 0px;
+} */
 
 .flex {
     display: flex;
@@ -558,7 +566,7 @@ input[type="email"]:focus {
         transition: all .5s ease-in-out;
     }
 
-    .mobile-menu.active {
+    .mobile-menu-active {
         left: 50%;
         transform: translateX(-50%);
     }
@@ -599,8 +607,11 @@ input[type="email"]:focus {
     }
 
 
-
-
+    /* Section 05 */
+    .input-container {
+        width: 90%;
+        max-width: 90%;
+    }
 
 
 }
