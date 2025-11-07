@@ -1,3 +1,4 @@
+
 // SECTION 03
 
 // Initialize Swiper 
@@ -22,22 +23,34 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const bars = document.querySelector('.hamburger i');
 
 // My Work 1
-const checkoutBtn = document.querySelector('.check-btn'); 
+const checkoutBtn = document.querySelector('.check-btn');
 
 
-cartIcon.addEventListener('click', () => cartTab.classList.add('cart-tab-active'));
-closeBtn.addEventListener('click', () => cartTab.classList.remove('cart-tab-active'));
+// cartIcon.addEventListener('click', () => cartTab.classList.add('cart-tab-active'));
+cartIcon.addEventListener('click', (e) => {
+    e.preventDefault();
+    cartTab.classList.toggle('cart-tab-active'); // toggle instead of add
+});
+
+// closeBtn.addEventListener('click', () => cartTab.classList.remove('cart-tab-active'));
+closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();                     // Prevent default jump/scroll
+    cartTab.classList.remove('cart-tab-active');
+});
+
 hamburger.addEventListener('click', () => mobileMenu.classList.toggle('mobile-menu-active'));
 hamburger.addEventListener('click', () => {
     bars.classList.toggle('fa-bars');
     bars.classList.toggle('fa-xmark');
 });
 
+
 let productList = [];
 let cartProduct = [];
 
 // My Work 2
 if (checkoutBtn) {
+
     checkoutBtn.addEventListener('click', (e) => {
         e.preventDefault();
 
@@ -53,7 +66,7 @@ if (checkoutBtn) {
 
         // 🔹 Step 4: Show message after clearing (with a small delay)
         setTimeout(() => {
-            alert('✅ Thank you for your purchase! Your cart is now empty.');
+            alert('✅ TWe appreciate your visit! Your cart has been cleared.');
         }, 300); // 0.3 second delay so emptying finishes first
     });
 }
@@ -193,3 +206,22 @@ const initApp = () => {
 }
 
 initApp();
+
+// Amir Section 01
+function toggleChat() {
+    const chat = document.getElementById("chatBox");
+
+    if (chat.style.display === "block") {
+        chat.style.display = "none";   // Close
+    } else {
+        chat.style.display = "block";  // Open
+    }
+}
+
+// Button Animation
+closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();   // prevent default jump
+    cartTab.classList.remove('cart-tab-active');
+});
+
+
