@@ -225,3 +225,88 @@ closeBtn.addEventListener('click', (e) => {
 });
 
 
+// For Videos
+
+// const videos = [
+//     "Images/Video1.mp4",
+//     "Images/Video2.mp4",
+//     // "Images/Food.mp4"
+// ];
+
+// let currentVideo = 0;  
+
+// const videoElement = document.getElementById("myVideo");
+
+// videoElement.addEventListener("ended", function () {
+
+//     currentVideo++;
+//     if (currentVideo >= videos.length) {
+//         currentVideo = 0; 
+//     }
+
+//     videoElement.src = videos[currentVideo];
+//     videoElement.play();
+// });
+
+
+
+const videos = [
+    "Images/Video1.mp4",
+    "Images/Video2.mp4",
+    // "Images/Food.mp4"
+];
+
+let currentVideo = 0;
+const videoElement = document.getElementById("myVideo");
+const currentTimeEl = document.getElementById("currentTime");
+const totalTimeEl = document.getElementById("totalTime");
+
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+
+// Load total duration
+videoElement.addEventListener("loadedmetadata", () => {
+    totalTimeEl.textContent = formatTime(Math.floor(videoElement.duration));
+});
+
+// Update current time
+videoElement.addEventListener("timeupdate", () => {
+    currentTimeEl.textContent = formatTime(Math.floor(videoElement.currentTime));
+});
+
+// Video ended → auto next
+videoElement.addEventListener("ended", () => {
+    nextVideo();
+});
+
+// Next button
+nextBtn.addEventListener("click", () => {
+    nextVideo();
+});
+
+// Previous button
+prevBtn.addEventListener("click", () => {
+    prevVideo();
+});
+
+// Functions
+function nextVideo() {
+    currentVideo++;
+    if (currentVideo >= videos.length) currentVideo = 0;
+    videoElement.src = videos[currentVideo];
+    videoElement.play();
+}
+
+function prevVideo() {
+    currentVideo--;
+    if (currentVideo < 0) currentVideo = videos.length - 1;
+    videoElement.src = videos[currentVideo];
+    videoElement.play();
+}
+
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
