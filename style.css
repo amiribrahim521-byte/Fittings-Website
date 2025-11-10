@@ -77,7 +77,7 @@ img {
 }
 
 .p-top {
-    padding-top: 10rem;
+    padding-top: 4rem;
 }
 
 .text-center {
@@ -228,7 +228,7 @@ img {
 /* SECTION STYLING */
 
 .hero-section {
-    min-height: calc(100vh - 14vh);
+    min-height: calc(100vh - 30vh);
 }
 
 .content,
@@ -336,7 +336,10 @@ h4 {
 
 /* CART TAB STYLING */
 .cart-tab {
-    background: var(--hint-yellow);
+    margin-top: 74px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    /* background: var(--hint-yellow); */
     position: fixed;
     inset: 0 -500 0 auto;
     width: 25rem;
@@ -572,7 +575,7 @@ input[type="email"]:focus {
 
 /* Amir SECTION 01 */
 
-/* Chat Button Animation */
+/* Chat Button */
 .chat-button {
     position: fixed;
     bottom: 30px;
@@ -584,13 +587,13 @@ input[type="email"]:focus {
     border-radius: 50%;
     cursor: pointer;
     z-index: 4000;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-    animation: bounce 2s infinite;
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: bounce 2s infinite;
 }
 
+/* Bounce Animation */
 @keyframes bounce {
 
     0%,
@@ -610,17 +613,19 @@ input[type="email"]:focus {
     }
 }
 
+/* Chat Box */
 .chat-box {
     position: fixed;
-    z-index: 4000;
     bottom: 90px;
     right: 20px;
     width: 300px;
+    max-width: 90%;
     background: white;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     display: none;
     overflow: hidden;
+    z-index: 10000;
 }
 
 .chat-header {
@@ -663,7 +668,8 @@ input[type="email"]:focus {
     height: 2rem;
     border-radius: 5px;
     background: #76a820;
-    color: var(--pure-white);
+    color: white;
+    border: none;
 }
 
 
@@ -675,42 +681,72 @@ input[type="email"]:focus {
     margin: auto;
 }
 
-.visiting-video {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;    
+/* Responsive Ratio Box (Netflix Style) */
+.video-container::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+    /* 16:9 ratio */
 }
 
+/* Fully Responsive Video */
+.visiting-video {
+    border-radius: 10px;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Controls hide by default */
 .video-controls {
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-family: sans-serif;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    padding: 10px 18px;
+    border-radius: 40px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Show on video hover */
+.video-container:hover .video-controls {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .video-controls button {
-    background: #f2bd12;
-    border: none;
-    color: #000;
-    padding: 5px 12px;
-    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 30px;
     cursor: pointer;
-    font-weight: bold;
+    transition: all 0.25s ease;
 }
 
 .video-controls button:hover {
-    background: #e0a800;
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateY(-2px);
 }
+
+.video-timer {
+    color: #fff;
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+
 
 
 
@@ -786,6 +822,22 @@ input[type="email"]:focus {
         font-size: 3rem;
     }
 
+    .video-controls {
+        padding: 6px 12px;
+        gap: 8px;
+        bottom: 12px;
+    }
+
+    .video-controls button {
+        padding: 5px 10px;
+        font-size: 12px;
+        border-radius: 20px;
+    }
+
+    .video-timer {
+        font-size: 11px;
+    }
+
     /* SECTION 04 */
     .app-container {
         padding: 2.2rem;
@@ -801,6 +853,17 @@ input[type="email"]:focus {
         width: 90%;
         max-width: 90%;
     }
+
+    /* Section 06 */
+
+    /* Responsive Chat Button */
+    .chat-button {
+        bottom: 15px;
+        right: 15px;
+        font-size: 20px;
+        padding: 12px;
+    }
+
 
 
 }

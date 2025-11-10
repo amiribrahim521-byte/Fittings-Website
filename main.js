@@ -210,11 +210,10 @@ initApp();
 // Amir Section 01
 function toggleChat() {
     const chat = document.getElementById("chatBox");
-
-    if (chat.style.display === "block") {
-        chat.style.display = "none";   // Close
+    if(chat.style.display === "block"){
+        chat.style.display = "none";
     } else {
-        chat.style.display = "block";  // Open
+        chat.style.display = "block";
     }
 }
 
@@ -249,6 +248,7 @@ closeBtn.addEventListener('click', (e) => {
 // });
 
 
+// Video
 
 const videos = [
     "Images/Video1.mp4",
